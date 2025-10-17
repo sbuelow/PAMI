@@ -1,15 +1,21 @@
 {
-  "name": "marcelog/pami",
+  "name": "sbuelow/pami",
   "type": "library",
   "description": "Asterisk Manager Interface (AMI) client for PHP, event driven, object oriented",
   "keywords": ["asterisk","ami","client","telephony","voip","event","action","manager","monitor"],
-  "homepage": "http://marcelog.github.com/PAMI",
+  "homepage": "https://github.com/sbuelow/PAMI",
   "license": "Apache-2.0",
   "authors": [
     {
       "name": "Marcelo Gornstein",
       "email": "marcelog@gmail.com",
       "homepage": "http://marcelog.github.com/",
+      "role": "Developer"
+    },
+    {
+      "name": "Stefano Buelow",
+      "email": "stefano.buelow@gmail.com",
+      "homepage": "https://github.com/sbuelow",
       "role": "Developer"
     }
   ],
@@ -19,20 +25,15 @@
     }
   },
   "require": {
-    "php": ">=5.3.3",
-    "psr/log": ">= 1.0.0"
+    "php": "^8.2",
+    "psr/log": "^1.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "4.*",
-    "monolog/monolog": "1.*",
-    "squizlabs/php_codesniffer": "2.*",
-    "phpdocumentor/phpdocumentor": "2.*",
-    "phing/phing": "2.*",
-    "phpmd/phpmd": "2.*",
-    "satooshi/php-coveralls": "1.0.1",
-    "evert/phpdoc-md" : "~0.1.1",
-    "codeclimate/php-test-reporter": "dev-master",
-    "sebastian/phpcpd": "*",
-    "marcelog/pagi": "2.*"
+    "phpunit/phpunit": "^12.4",
+    "friendsofphp/php-cs-fixer": "^3.88",
+    "monolog/monolog": "^2.10",
+    "squizlabs/php_codesniffer": "^4.0",
+    "phing/phing": "^3.1",
+    "phpmd/phpmd": "^2.15"
   }
 }

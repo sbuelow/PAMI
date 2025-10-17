@@ -1,4 +1,3 @@
-composer.lock
 vendor
 .buildpath
 .project
@@ -6,4 +5,4 @@ vendor
 build
 docs/examples/quickstart/log.log
 resources/php.ini
-
+.php-cs-fixer.cache

@@ -5,11 +5,6 @@
   basedir="."
   description="PAMI Asterisk Manager Interface (AMI) client for PHP">
 
-  <target name="install">
-    <exec command="./composer.phar install" checkreturn="true" passthru="true"/>
-    <exec command="./composer.phar update" checkreturn="true" passthru="true"/>
-  </target>
-
   <target name="clean">
     <delete dir="build"/>
   </target>
@@ -25,39 +20,45 @@
   </target>
 
   <target name="cpd">
-    <exec command="vendor/bin/phpcpd --fuzzy src --exclude PAMI/Message/Event"
-      checkreturn="true"
-      passthru="true"/>
+    <exec executable="vendor/bin/phpcpd" checkreturn="true" passthru="true">
+      <arg line="--fuzzy src --exclude PAMI/Message/Event"/>
+    </exec>
   </target>
 
+<target name="check">
+  <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
+    <arg line=" fix --dry-run src"/>
+  </exec>
+</target>
+
   <target name="md">
-    <exec command="vendor/bin/phpmd ./src text cleancode,codesize,controversial,design,naming,unusedcode"
-      checkreturn="false"
-      passthru="true"/>
+    <exec executable="vendor/bin/phpmd" checkreturn="false" passthru="true">
+      <arg line="./src text cleancode,codesize,controversial,design,naming,unusedcode"/>
+    </exec>
   </target>
 
   <target name="cs">
-    <exec command="vendor/bin/phpcs --standard=PSR2 src/*"
-      checkreturn="true"
-      passthru="true"/>
+    <exec executable="vendor/bin/phpcs" checkreturn="true" passthru="true">
+      <arg line="--standard=PSR2 src/*"/>
+    </exec>
   </target>
 
   <target name="docxml">
-    <exec command="vendor/bin/phpdoc --template=xml -t build/doc/xml -d src --validate --sourcecode --force --log"
-      checkreturn="true"
-      passthru="true"/>
+    <exec executable="vendor/bin/phpdoc" checkreturn="true" passthru="true">
+      <arg line="--template=xml -t build/doc/xml -d src --validate --sourcecode --force --log"/>
+    </exec>
   </target>
 
   <target name="dochtml">
-    <exec command="vendor/bin/phpdoc -t build/doc/html -d src --validate --sourcecode --force --log"
-      checkreturn="true"
-      passthru="true"/>
+    <exec executable="vendor/bin/phpdoc" checkreturn="true" passthru="true">
+      <arg line=" -t build/doc/html -d src --validate --sourcecode --force --log"/>
+    </exec>
   </target>
 
   <target name="docmd">
-    <exec dir="build/doc/md" command="../../../vendor/bin/phpdocmd ../xml/structure.xml"
-      checkreturn="true"
-      passthru="true"/>
+    <exec dir="build/doc/md" executable="../../../vendor/bin/phpdocmd" checkreturn="true" passthru="true">
+      <arg line="../xml/structure.xml"/>
+    </exec>
     <copy todir="doc" overwrite="true">
       <fileset dir="build/doc/md">
         <include name="*.md" />
@@ -66,12 +67,12 @@
   </target>
 
   <target name="test">
-    <exec command="vendor/bin/phpunit -v --debug -c test/resources/phpunit.xml"
-      checkreturn="true"
-      passthru="true"/>
+    <exec executable="vendor/bin/phpunit" checkreturn="true" passthru="true">
+      <arg line="--debug -c test/resources/phpunit.xml"/>
+    </exec>
   </target>
 
-  <target name="build" depends="clean, prepare, cpd, cs, md, doc, test"/>
+  <target name="build" depends="clean, prepare, check, cs, md, doc, test"/>
   <target name="travis" depends="clean, prepare, cpd, cs, test"/>
   <target name="doc" depends="docxml, dochtml, docmd"/>
 
