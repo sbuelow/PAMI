@@ -12,6 +12,8 @@ either via SOA or ajax.
 A port for nodejs is available at: http://marcelog.github.com/Nami
 A port for erlang is available at: https://github.com/marcelog/erlami
 
+This package is a fork, you can find the original [here](https://github.com/marcelog/PAMI)
+
 # Resources
 
  * [API](http://pami.readthedocs.org/en/latest/ApiIndex/)
@@ -19,13 +21,16 @@ A port for erlang is available at: https://github.com/marcelog/erlami
 
 # PHP Versions
 
-Note: PAMI Requires PHP 5.3+. PHP versions 5.3.9 and 5.3.10 WILL NOT WORK due
-to a bug introduced in stream_get_line() in 5.3.9. Please use 5.3.11+ or up
-to 5.3.8 (see README.PHP-5.3.9-and-5.3.10).
+This PAMI requires PHP 8.2 or higher.
 
 # Installing
-Add this library to your [Composer](https://packagist.org/) configuration. In
-composer.json:
+Add this library to your [Composer](https://packagist.org/) configuration.
+You can execute this command in the root of your composer project:
+```
+composer require sbuelow/pami:"2.*"
+```
+
+or change manually composer.json:
 ```json
   "require": {
     "sbuelow/pami": "2.*"
@@ -296,6 +301,8 @@ This project uses [phing](https://www.phing.info/). Current tasks include:
  * doc: Runs [PhpDocumentor](http://www.phpdoc.org/).
  * md: runs [PHPMD](http://phpmd.org/).
  * build: This is the default task, and will run all the other tasks.
+
+**Note**: Composer dependencies for dev environment are messed up. Next thing to do is to update/rethink the whole stack.
 
 ## Running a phing task
 To run a task, just do:
