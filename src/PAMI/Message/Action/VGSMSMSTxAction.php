@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Not all methods were implemented. For reference please check
  * http://open.voismart.it/index.php/VGSM_Manager_Interface
@@ -29,6 +30,7 @@
  *
  *
  */
+
 namespace PAMI\Message\Action;
 
 /**

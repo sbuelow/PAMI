@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when music on hold has started on a channel.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**

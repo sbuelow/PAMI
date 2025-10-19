@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when a channel leaves a parking lot because it hung up without being answered.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**

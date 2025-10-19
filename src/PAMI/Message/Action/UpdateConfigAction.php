@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UpdateConfig action message.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Action;
 
 /**
@@ -80,13 +82,13 @@ class UpdateConfigAction extends ActionMessage
         $this->setKey('DstFilename', $filename);
     }
 
-     /**
-     * Sets Reload key.
-     *
-     * @param string $input.
-     *
-     * @return void
-     */
+    /**
+    * Sets Reload key.
+    *
+    * @param string $input.
+    *
+    * @return void
+    */
     public function setReload($reload)
     {
         $this->setKey('Reload', $reload ? 'yes' : 'no');
@@ -142,25 +144,25 @@ class UpdateConfigAction extends ActionMessage
         $this->setKey('Value-'.$this->getPaddedCounter(), $input);
     }
 
-     /**
-     * Sets Match-XXXXXX key.
-     *
-     * @param string $input.
-     *
-     * @return void
-     */
+    /**
+    * Sets Match-XXXXXX key.
+    *
+    * @param string $input.
+    *
+    * @return void
+    */
     public function setMatch($input)
     {
         $this->setKey('Match-'.$this->getPaddedCounter(), $input);
     }
 
-     /**
-     * Sets Line-XXXXXX key.
-     *
-     * @param string $input.
-     *
-     * @return void
-     */
+    /**
+    * Sets Line-XXXXXX key.
+    *
+    * @param string $input.
+    *
+    * @return void
+    */
     public function setLine($input)
     {
         $this->setKey('Line-'.$this->getPaddedCounter(), $input);

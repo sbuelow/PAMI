@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when a channel changes its status.
  *
@@ -29,6 +30,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;
@@ -117,11 +119,11 @@ class NewstateEvent extends EventMessage
         return $this->getKey('UniqueID');
     }
 
-   /**
-     * Returns key: 'ConnectedLineNum'. Asterisk >= 1.8.
-     *
-     * @return string
-     */
+    /**
+      * Returns key: 'ConnectedLineNum'. Asterisk >= 1.8.
+      *
+      * @return string
+      */
     public function getConnectedLineNum()
     {
         return $this->getKey('ConnectedLineNum');

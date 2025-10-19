@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered starting/stopping a dongle.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

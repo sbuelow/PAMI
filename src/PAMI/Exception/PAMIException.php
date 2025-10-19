@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PAMI family of exceptions.
  *
@@ -26,6 +27,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Exception;
 
 /**

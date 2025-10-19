@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This factory knows which event to return according to a given raw message
  * from ami.
@@ -28,6 +29,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event\Factory\Impl;
 
 use PAMI\Message\Event\EventMessage;

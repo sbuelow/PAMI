@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when a received AGI command completes processing.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**

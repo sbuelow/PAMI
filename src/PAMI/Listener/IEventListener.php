@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implement this interface in your own classes to make them event listeners.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Listener;
 
 use PAMI\Message\Event\EventMessage;

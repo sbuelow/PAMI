@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when a dial action has started.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**

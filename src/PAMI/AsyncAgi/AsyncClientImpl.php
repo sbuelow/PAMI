@@ -1,4 +1,5 @@
 <?php
+
 /**
  * An AsyncAGI client implementation.
  *
@@ -25,6 +26,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\AsyncAgi;
 
 use PAMI\Client\IClient as PamiClient;
@@ -162,7 +164,7 @@ class AsyncClientImpl extends PagiClient implements IEventListener
     public function __construct(array $options = array())
     {
         $this->options = $options;
-        $this->logger = new NullLogger;
+        $this->logger = new NullLogger();
         $this->pamiClient = $options['pamiClient'];
         $this->asyncAgiEvent = $options['asyncAgiEvent'];
         $this->open();

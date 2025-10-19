@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered for Jabber Activity. A contribution from
  * Richard Baar.
@@ -28,6 +29,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

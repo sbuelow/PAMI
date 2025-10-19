@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Triggered when an extension changes its status.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

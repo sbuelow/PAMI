@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when a database key is asked for.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

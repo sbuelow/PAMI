@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when the Do Not Disturb state is changed on a DAHDI channel.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**

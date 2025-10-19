@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A generic ami message, in-or-outbound.
  *
@@ -26,6 +27,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message;
 
 /**
@@ -45,13 +47,13 @@ abstract class Message
      * End Of Line means this token.
      * @var string
      */
-    const EOL = "\r\n";
+    public const EOL = "\r\n";
 
     /**
      * End Of Message means this token.
      * @var string
      */
-    const EOM = "\r\n\r\n";
+    public const EOM = "\r\n\r\n";
 
     /**
      * Message content, line by line. This is what it gets sent

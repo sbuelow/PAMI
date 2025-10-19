@@ -1,4 +1,10 @@
+[![License](http://poser.pugx.org/sbuelow/PAMI/license)](https://packagist.org/packages/sbuelow/PAMI) 
+[![Latest Stable Version](http://poser.pugx.org/sbuelow/PAMI/v)](https://packagist.org/packages/sbuelow/PAMI)
 [![Documentation Status](https://readthedocs.org/projects/pami/badge/?version=latest)](http://pami.readthedocs.org/en/latest/?badge=latest)
+[![PHP Version Require](http://poser.pugx.org/sbuelow/PAMI/require/php)](https://packagist.org/packages/sbuelow/PAMI)
+
+[![Total Downloads](http://poser.pugx.org/sbuelow/PAMI/downloads)](https://packagist.org/packages/sbuelow/PAMI)
+
 
 # Introduction
 
@@ -302,7 +308,6 @@ This project uses [phing](https://www.phing.info/). Current tasks include:
  * md: runs [PHPMD](http://phpmd.org/).
  * build: This is the default task, and will run all the other tasks.
 
-**Note**: Composer dependencies for dev environment are messed up. Next thing to do is to update/rethink the whole stack.
 
 ## Running a phing task
 To run a task, just do:

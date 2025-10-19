@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Whenever a ME (GSM module) changes working state, an event is generated.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

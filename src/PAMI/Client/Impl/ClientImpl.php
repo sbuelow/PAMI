@@ -1,4 +1,5 @@
 <?php
+
 declare(ticks=1);
 /**
  * TCP Client implementation for AMI.
@@ -28,6 +29,7 @@ declare(ticks=1);
  * limitations under the License.
  *
  */
+
 namespace PAMI\Client\Impl;
 
 use PAMI\Message\OutgoingMessage;
@@ -455,7 +457,7 @@ class ClientImpl implements IClient
      */
     public function __construct(array $options)
     {
-        $this->logger = new NullLogger;
+        $this->logger = new NullLogger();
         $this->host = $options['host'];
         $this->port = (int) $options['port'];
         $this->user = $options['username'];

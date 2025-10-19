@@ -13,8 +13,8 @@
     <mkdir dir="build" mode="0755"/>
     <mkdir dir="build/doc" mode="0755"/>
     <mkdir dir="build/doc/xml" mode="0755"/>
+    <mkdir dir="build/doc/cache" mode="0755"/>
     <mkdir dir="build/doc/html" mode="0755"/>
-    <mkdir dir="build/doc/md" mode="0755"/>
     <mkdir dir="build/logs" mode="0755"/>
     <mkdir dir="build/coverage-html" mode="0755"/>
   </target>
@@ -27,7 +27,13 @@
 
 <target name="check">
   <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
-    <arg line=" fix --dry-run src"/>
+    <arg line="check -v src"/>
+  </exec>
+</target>
+
+<target name="fix">
+  <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
+    <arg line="fix -v src"/>
   </exec>
 </target>
 
@@ -45,25 +51,20 @@
 
   <target name="docxml">
     <exec executable="vendor/bin/phpdoc" checkreturn="true" passthru="true">
-      <arg line="--template=xml -t build/doc/xml -d src --validate --sourcecode --force --log"/>
+      <arg line="--template=xml -t build/doc/xml -d src --cache-folder=build/doc/cache --validate --sourcecode --force --log"/>
     </exec>
   </target>
 
   <target name="dochtml">
     <exec executable="vendor/bin/phpdoc" checkreturn="true" passthru="true">
-      <arg line=" -t build/doc/html -d src --validate --sourcecode --force --log"/>
+      <arg line="--template=clean -t build/doc/html -d src --cache-folder=build/doc/cache --validate --sourcecode --force --log"/>
     </exec>
   </target>
 
   <target name="docmd">
-    <exec dir="build/doc/md" executable="../../../vendor/bin/phpdocmd" checkreturn="true" passthru="true">
-      <arg line="../xml/structure.xml"/>
+    <exec executable="vendor/bin/phpdoc" checkreturn="true" passthru="true">
+      <arg line="--template=vendor/saggre/phpdocumentor-markdown/themes/markdown -t doc -d src --cache-folder=build/doc/cache --validate --sourcecode --force --log -v"/>
     </exec>
-    <copy todir="doc" overwrite="true">
-      <fileset dir="build/doc/md">
-        <include name="*.md" />
-      </fileset>
-    </copy>
   </target>
 
   <target name="test">

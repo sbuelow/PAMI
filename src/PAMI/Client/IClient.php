@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Interface for an ami client.
  *
@@ -26,6 +27,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Client;
 
 use PAMI\Message\OutgoingMessage;

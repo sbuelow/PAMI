@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A generic response message from ami.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Response;
 
 use PAMI\Message\Message;

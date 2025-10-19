@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered for each peer when an action Sippeers is issued.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

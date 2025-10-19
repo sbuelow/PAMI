@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when an async agi is executed.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 use PAMI\Message\Event\EventMessage;

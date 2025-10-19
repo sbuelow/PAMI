@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when a bridge is destroyed.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Queue unpause action. This does not exist in the ami.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Action;
 
 /**

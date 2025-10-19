@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered when issuing a VoicemailUsersList action.
  *
@@ -27,6 +28,7 @@
  * limitations under the License.
  *
  */
+
 namespace PAMI\Message\Event;
 
 /**
