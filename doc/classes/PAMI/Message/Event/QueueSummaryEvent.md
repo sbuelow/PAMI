@@ -74,6 +74,16 @@ public getLongestHoldTime(): int
 
 ***
 
+### getTalkTime
+
+Returns key: 'TalkTime'.
+
+```php
+public getTalkTime(): int
+```
+
+***
+
 ## Inherited methods
 
 ### __sleep

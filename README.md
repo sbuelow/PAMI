@@ -2,7 +2,6 @@
 [![Latest Stable Version](http://poser.pugx.org/sbuelow/PAMI/v)](https://packagist.org/packages/sbuelow/PAMI)
 [![Documentation Status](https://readthedocs.org/projects/pami/badge/?version=latest)](http://pami.readthedocs.org/en/latest/?badge=latest)
 [![PHP Version Require](http://poser.pugx.org/sbuelow/PAMI/require/php)](https://packagist.org/packages/sbuelow/PAMI)
-
 [![Total Downloads](http://poser.pugx.org/sbuelow/PAMI/downloads)](https://packagist.org/packages/sbuelow/PAMI)
 
 
@@ -14,9 +13,6 @@ events, using an observer-listener pattern.
 
 The idea behind this, is to easily implement operator consoles, monitors, etc.
 either via SOA or ajax.
-
-A port for nodejs is available at: http://marcelog.github.com/Nami
-A port for erlang is available at: https://github.com/marcelog/erlami
 
 This package is a fork, you can find the original [here](https://github.com/marcelog/PAMI)
 
@@ -118,6 +114,7 @@ can still catch them. If you catch one of these, please report it!
 * Bridge
 * BridgeInfoChannel
 * BridgeInfoComplete
+* BridgeListComplete
 * CEL
 * ChannelUpdate
 * ConfbridgeEnd
@@ -206,6 +203,7 @@ can still catch them. If you catch one of these, please report it!
 * Atxfer (asterisk 1.8?)
 * Bridge
 * BridgeInfo
+* BridgeList
 * ChangeMonitor
 * Command
 * ConfbridgeList
@@ -288,6 +286,7 @@ can still catch them. If you catch one of these, please report it!
 * UnpauseMonitor
 * VGSM_SMS_TX
 * VoicemailUsersList
+* VoicemailUserStatus
 
 
 

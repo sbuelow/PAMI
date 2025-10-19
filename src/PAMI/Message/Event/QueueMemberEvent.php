@@ -118,6 +118,26 @@ class QueueMemberEvent extends EventMessage
     }
 
     /**
+     * Returns key: 'StateInterface'.
+     *
+     * @return integer
+     */
+    public function getStateInterface()
+    {
+        return $this->getKey('StateInterface');
+    }
+
+    /**
+     * Returns key: 'IsInCall'.
+     *
+     * @return integer
+     */
+    public function getIsInCall()
+    {
+        return $this->getKey('IsInCall');
+    }
+
+    /**
      * Returns key: 'Pause'.
      *
      * @return boolean

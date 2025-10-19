@@ -88,13 +88,13 @@ class CoreShowChannelEvent extends EventMessage
     }
 
     /**
-     * Returns key: 'Extension'.
+     * Returns key: 'Exten'.
      *
      * @return string
      */
-    public function getExtension()
+    public function getExten()
     {
-        return $this->getKey('Extension');
+        return $this->getKey('Exten');
     }
 
 
@@ -189,12 +189,12 @@ class CoreShowChannelEvent extends EventMessage
     }
 
     /**
-     * Returns key: 'BridgedUniqueID'.
+     * Returns key: 'BridgeID'.
      *
      * @return string
      */
-    public function getBridgedUniqueID()
+    public function getBridgeID()
     {
-        return $this->getKey('BridgedUniqueID');
+        return $this->getKey('BridgeID');
     }
 }

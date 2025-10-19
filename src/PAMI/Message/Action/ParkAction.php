@@ -55,11 +55,16 @@ class ParkAction extends ActionMessage
      *
      * @return void
      */
-    public function __construct($channel1, $channel2, $timeout = false, $lot = false)
+    public function __construct($channel1, $channel2 = false, $timeout = false, $lot = false)
     {
         parent::__construct('Park');
         $this->setKey('Channel', $channel1);
-        $this->setKey('Channel2', $channel2);
+        if ($channel2 != false) {
+            $this->setKey('AnnounceChannel', $channel2);
+        }
+        if ($timeout_channel != false) {
+            $this->setKey('TimeoutChannel', $timeout_channel);
+        }
         if ($timeout != false) {
             $this->setKey('Timeout', $timeout);
         }

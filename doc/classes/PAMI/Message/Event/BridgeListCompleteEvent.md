@@ -1,115 +1,95 @@
 
-Event triggered for a QueueStatus action.
+Event triggered for the end of the list when an action BridgeList is issued.
 
 PHP Version 5
 
 ***
 
-* Full name: `\PAMI\Message\Event\QueueMemberEvent`
+* Full name: `\PAMI\Message\Event\BridgeListCompleteEvent`
 * Parent class: [`\PAMI\Message\Event\EventMessage`](./EventMessage)
 
 **See Also:**
 
-* http://marcelog.github.com/PAMI/
+* https://github.com/sbuelow/PAMI/
 
 ## Methods
 
-### getQueue
+### getBridgeUniqueid
 
-Returns key: 'Queue'.
+Returns key: 'BridgeUniqueid'.
 
 ```php
-public getQueue(): string
+public getBridgeUniqueid(): string
 ```
 
 ***
 
-### getLocation
+### getBridgeType
 
-Returns key: 'Location'.
+Returns key: 'BridgeType'.
 
 ```php
-public getLocation(): string
+public getBridgeType(): string
 ```
 
 ***
 
-### getMemberName
+### getBridgeTechnology
 
-Returns key: 'MemberName'.
+Returns key: 'BridgeTechnology'.
 
 ```php
-public getMemberName(): string
+public getBridgeTechnology(): string
 ```
 
 ***
 
-### getMembership
+### getBridgeCreator
 
-Returns key: 'Membership'.
+Returns key: 'BridgeCreator'.
 
 ```php
-public getMembership(): string
+public getBridgeCreator(): string
 ```
 
 ***
 
-### getPenalty
+### getBridgeName
 
-Returns key: 'Penalty'.
+Returns key: 'BridgeName'.
 
 ```php
-public getPenalty(): int
+public getBridgeName(): string
 ```
 
 ***
 
-### getCallsTaken
+### getBridgeNumChannels
 
-Returns key: 'CallsTaken'.
+Returns key: 'BridgeNumChannels'.
 
 ```php
-public getCallsTaken(): int
+public getBridgeNumChannels(): string
 ```
 
 ***
 
-### getStatus
+### getBridgeVideoSourceMode
 
-Returns key: 'Status'.
+Returns key: 'BridgeVideoSourceMode'.
 
 ```php
-public getStatus(): int
+public getBridgeVideoSourceMode(): string
 ```
 
 ***
 
-### getStateInterface
+### getBridgeVideoSource
 
-Returns key: 'StateInterface'.
-
-```php
-public getStateInterface(): int
-```
-
-***
-
-### getIsInCall
-
-Returns key: 'IsInCall'.
+Returns key: 'BridgeVideoSource'.
 
 ```php
-public getIsInCall(): int
-```
-
-***
-
-### getPaused
-
-Returns key: 'Pause'.
-
-```php
-public getPaused(): bool
+public getBridgeVideoSource(): string
 ```
 
 ***

@@ -106,4 +106,14 @@ class QueueSummaryEvent extends EventMessage
     {
         return $this->getKey('LongestHoldTime');
     }
+
+    /**
+     * Returns key: 'TalkTime'.
+     *
+     * @return integer
+     */
+    public function getTalkTime()
+    {
+        return $this->getKey('TalkTime');
+    }
 }

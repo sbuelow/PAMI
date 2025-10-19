@@ -1,16 +1,16 @@
 
-Park action message.
+VoicemailUserStatus action message.
 
 PHP Version 5
 
 ***
 
-* Full name: `\PAMI\Message\Action\ParkAction`
+* Full name: `\PAMI\Message\Action\VoicemailUserStatusAction`
 * Parent class: [`\PAMI\Message\Action\ActionMessage`](./ActionMessage)
 
 **See Also:**
 
-* http://marcelog.github.com/PAMI/
+* https://github.com/sbuelow/PAMI/
 
 ## Methods
 
@@ -19,17 +19,8 @@ PHP Version 5
 Constructor.
 
 ```php
-public __construct(string $channel1, string $channel2 = false, int $timeout = false, string $lot = false): void
+public __construct(): void
 ```
-
-**Parameters:**
-
-| Parameter   | Type       | Description                                                  |
-|-------------|------------|--------------------------------------------------------------|
-| `$channel1` | **string** | Channel name to park.                                        |
-| `$channel2` | **string** | Channel to announce park info to (and return to if timeout). |
-| `$timeout`  | **int**    | Number of milliseconds to wait before callback.              |
-| `$lot`      | **string** | Parking lot to park channel in.                              |
 
 ***
 

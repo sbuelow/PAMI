@@ -54,12 +54,12 @@ public getContext(): string
 
 ***
 
-### getExtension
+### getExten
 
-Returns key: 'Extension'.
+Returns key: 'Exten'.
 
 ```php
-public getExtension(): string
+public getExten(): string
 ```
 
 ***
@@ -154,12 +154,12 @@ public getBridgedChannel(): string
 
 ***
 
-### getBridgedUniqueID
+### getBridgeID
 
-Returns key: 'BridgedUniqueID'.
+Returns key: 'BridgeID'.
 
 ```php
-public getBridgedUniqueID(): string
+public getBridgeID(): string
 ```
 
 ***
