@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Returns a list of bridges in the system.
  *

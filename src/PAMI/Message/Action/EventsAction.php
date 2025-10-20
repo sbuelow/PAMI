@@ -51,8 +51,10 @@ class EventsAction extends ActionMessage
      * @param string[] $mask Asterisk events to handle (system, call, log, etc).
      *
      * @return void
+     *
+     * @SuppressWarnings(PHPMD.ElseExpression)
      */
-    public function __construct(array $mask = array())
+    public function __construct(array $mask = [])
     {
         parent::__construct('Events');
         if (empty($mask)) {

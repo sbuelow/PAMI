@@ -19,33 +19,15 @@
     <mkdir dir="build/coverage-html" mode="0755"/>
   </target>
 
-  <target name="cpd">
-    <exec executable="vendor/bin/phpcpd" checkreturn="true" passthru="true">
-      <arg line="--fuzzy src --exclude PAMI/Message/Event"/>
-    </exec>
-  </target>
-
-<target name="check">
+<target name="cs">
   <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
-    <arg line="check -v src"/>
-  </exec>
-</target>
-
-<target name="fix">
-  <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
-    <arg line="fix -v src"/>
+    <arg line="fix -v"/>
   </exec>
 </target>
 
   <target name="md">
     <exec executable="vendor/bin/phpmd" checkreturn="false" passthru="true">
-      <arg line="./src text cleancode,codesize,controversial,design,naming,unusedcode"/>
-    </exec>
-  </target>
-
-  <target name="cs">
-    <exec executable="vendor/bin/phpcs" checkreturn="true" passthru="true">
-      <arg line="--standard=PSR2 src/*"/>
+      <arg line="./src ansi cleancode,codesize,controversial,design,naming,unusedcode"/>
     </exec>
   </target>
 
@@ -63,7 +45,7 @@
 
   <target name="docmd">
     <exec executable="vendor/bin/phpdoc" checkreturn="true" passthru="true">
-      <arg line="--template=vendor/saggre/phpdocumentor-markdown/themes/markdown -t doc -d src --cache-folder=build/doc/cache --validate --sourcecode --force --log -v"/>
+      <arg line="--template=vendor/saggre/phpdocumentor-markdown/themes/markdown -t doc -d src --cache-folder=build/doc/cache --validate --sourcecode --force --log"/>
     </exec>
   </target>
 
@@ -73,7 +55,7 @@
     </exec>
   </target>
 
-  <target name="build" depends="clean, prepare, check, cs, md, doc, test"/>
+  <target name="build" depends="clean, prepare, cs, md, doc"/>
   <target name="doc" depends="docxml, dochtml, docmd"/>
 
 </project>

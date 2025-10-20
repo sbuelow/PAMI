@@ -19,7 +19,7 @@ PHP Version 5
 Constructor.
 
 ```php
-public __construct(string[] $mask = array()): void
+public __construct(string[] $mask = []): void
 ```
 
 **Parameters:**

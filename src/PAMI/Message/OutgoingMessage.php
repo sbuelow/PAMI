@@ -41,6 +41,4 @@ namespace PAMI\Message;
  * @license  http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link     http://marcelog.github.com/PAMI/
  */
-abstract class OutgoingMessage extends Message
-{
-}
+abstract class OutgoingMessage extends Message {}

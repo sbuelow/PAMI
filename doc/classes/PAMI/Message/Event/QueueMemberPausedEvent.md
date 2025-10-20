@@ -54,12 +54,12 @@ public getMemberName(): string
 
 ***
 
-### getPaused
+### isPaused
 
 Returns key: 'Paused'.
 
 ```php
-public getPaused(): bool
+public isPaused(): bool
 ```
 
 ***

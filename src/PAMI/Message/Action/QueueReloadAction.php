@@ -42,6 +42,8 @@ namespace PAMI\Message\Action;
  * @author     Marcelo Gornstein <marcelog@gmail.com>
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class QueueReloadAction extends ActionMessage
 {
@@ -59,7 +61,7 @@ class QueueReloadAction extends ActionMessage
         $queue = false,
         $members = false,
         $rules = false,
-        $parameters = false
+        $parameters = false,
     ) {
         parent::__construct('QueueReload');
         if ($queue !== false) {

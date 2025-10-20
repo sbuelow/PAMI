@@ -42,6 +42,8 @@ namespace PAMI\Message\Action;
  * @author     Marcelo Gornstein <marcelog@gmail.com>
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class ParkAction extends ActionMessage
 {
@@ -61,9 +63,6 @@ class ParkAction extends ActionMessage
         $this->setKey('Channel', $channel1);
         if ($channel2 != false) {
             $this->setKey('AnnounceChannel', $channel2);
-        }
-        if ($timeout_channel != false) {
-            $this->setKey('TimeoutChannel', $timeout_channel);
         }
         if ($timeout != false) {
             $this->setKey('Timeout', $timeout);

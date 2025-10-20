@@ -94,12 +94,12 @@ public getStatus(): int
 
 ***
 
-### getPause
+### isPaused
 
 Returns key: 'Paused'.
 
 ```php
-public getPause(): bool
+public isPaused(): bool
 ```
 
 ***

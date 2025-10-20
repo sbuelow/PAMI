@@ -115,16 +115,15 @@ abstract class IncomingMessage extends Message
         if (is_null($channel)) {
             if (!isset($this->keys['channel'])) {
                 return $this->getChannelVariables('default');
-            } else {
-                return $this->getChannelVariables($this->keys['channel']);
             }
-        } else {
-            $channel = strtolower($channel);
-            if (!isset($this->channelVariables[$channel])) {
-                return null;
-            }
-            return $this->channelVariables[$channel];
+            return $this->getChannelVariables($this->keys['channel']);
         }
+
+        $channel = strtolower($channel);
+        if (!isset($this->channelVariables[$channel])) {
+            return null;
+        }
+        return $this->channelVariables[$channel];
     }
 
     /**
@@ -133,11 +132,13 @@ abstract class IncomingMessage extends Message
      * @param string $rawContent Original message as received from ami.
      *
      * @return void
+     *
+     * @SuppressWarnings(PHPMD.ElseExpression)
      */
     public function __construct($rawContent)
     {
         parent::__construct();
-        $this->channelVariables = array('default' => array());
+        $this->channelVariables = ['default' => []];
         $this->rawContent = $rawContent;
         $lines = explode(Message::EOL, $rawContent);
         foreach ($lines as $line) {
@@ -167,7 +168,7 @@ abstract class IncomingMessage extends Message
             if (isset($this->channelVariables[$channel])) {
                 $this->channelVariables[$channel] = array_merge(
                     $this->channelVariables[$channel],
-                    $this->channelVariables['default']
+                    $this->channelVariables['default'],
                 );
             } else {
                 $this->channelVariables[$channel] = $this->channelVariables['default'];

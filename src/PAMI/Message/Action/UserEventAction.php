@@ -56,7 +56,7 @@ class UserEventAction extends ActionMessage
         parent::__construct('UserEvent');
         $this->setKey('UserEvent', $userEvent);
         foreach ($headers as $key => $value) {
-            $this->setKey((string)$key, (string)$value);
+            $this->setKey((string) $key, (string) $value);
         }
     }
 }

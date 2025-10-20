@@ -132,7 +132,7 @@ class QueueMemberStatusEvent extends EventMessage
      *
      * @return boolean
      */
-    public function getPause()
+    public function isPaused()
     {
         return intval($this->getKey('Paused')) != 0;
     }

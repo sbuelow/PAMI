@@ -55,6 +55,10 @@ use Psr\Log\NullLogger;
  * @author     Marcelo Gornstein <marcelog@gmail.com>
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
+ *
+ * @SuppressWarnings(PHPMD.ElseExpression)
+ * @SuppressWarnings(PHPMD.TooManyFields)
+ * @SuppressWarnings(PHPMD.LongVariable)
  */
 class ClientImpl implements IClient
 {
@@ -168,31 +172,31 @@ class ClientImpl implements IClient
         $this->context = stream_context_create();
         $errno = 0;
         $errstr = '';
-        $this->socket = @stream_socket_client(
+        $this->socket = stream_socket_client(
             $cString,
             $errno,
             $errstr,
             $this->cTimeout,
             STREAM_CLIENT_CONNECT,
-            $this->context
+            $this->context,
         );
         if ($this->socket === false) {
             throw new ClientException('Error connecting to ami: ' . $errstr);
         }
         $msg = new LoginAction($this->user, $this->pass, $this->eventMask);
-        $asteriskId = @stream_get_line($this->socket, 1024, Message::EOL);
+        $asteriskId = stream_get_line($this->socket, 1024, Message::EOL);
         if (strstr($asteriskId, 'Asterisk') === false) {
             throw new ClientException(
-                "Unknown peer. Is this an ami?: $asteriskId"
+                "Unknown peer. Is this an ami?: $asteriskId",
             );
         }
         $response = $this->send($msg);
         if (!$response->isSuccess()) {
             throw new ClientException(
-                'Could not connect: ' . $response->getMessage()
+                'Could not connect: ' . $response->getMessage(),
             );
         }
-        @stream_set_blocking($this->socket, 0);
+        stream_set_blocking($this->socket, 0);
         $this->currentProcessingMessage = '';
         $this->logger->debug('Logged in successfully to ami.');
     }
@@ -211,7 +215,7 @@ class ClientImpl implements IClient
     public function registerEventListener($listener, $predicate = null)
     {
         $listenerId = uniqid('PamiListener');
-        $this->eventListeners[$listenerId] = array($listener, $predicate);
+        $this->eventListeners[$listenerId] = [$listener, $predicate];
         return $listenerId;
     }
 
@@ -237,10 +241,10 @@ class ClientImpl implements IClient
      */
     protected function getMessages()
     {
-        $msgs = array();
+        $msgs = [];
         // Read something.
-        $read = @fread($this->socket, 65535);
-        if ($read === false || @feof($this->socket)) {
+        $read = fread($this->socket, 65535);
+        if ($read === false || feof($this->socket)) {
             throw new ClientException('Error reading');
         }
         $this->currentProcessingMessage .= $read;
@@ -250,7 +254,7 @@ class ClientImpl implements IClient
             $msg = substr($this->currentProcessingMessage, 0, $marker);
             $this->currentProcessingMessage = substr(
                 $this->currentProcessingMessage,
-                $marker + strlen(Message::EOM)
+                $marker + strlen(Message::EOM),
             );
             $msgs[] = $msg;
         }
@@ -267,12 +271,12 @@ class ClientImpl implements IClient
         $msgs = $this->getMessages();
         foreach ($msgs as $aMsg) {
             $this->logger->debug(
-                '------ Received: ------ ' . "\n" . $aMsg . "\n\n"
+                '------ Received: ------ ' . "\n" . $aMsg . "\n\n",
             );
             $resPos = strpos($aMsg, 'Response:');
             $evePos = strpos($aMsg, 'Event:');
-            if (($resPos !== false) &&
-              (($resPos < $evePos) || $evePos === false)
+            if (($resPos !== false)
+                && (($resPos < $evePos) || $evePos === false)
             ) {
                 $response = $this->messageToResponse($aMsg);
                 $this->incomingQueue[$response->getActionId()] = $response;
@@ -379,11 +383,11 @@ class ClientImpl implements IClient
     protected function getRelated(OutgoingMessage $message)
     {
         $ret = false;
-        $id = $message->getActionID('ActionID');
-        if (isset($this->incomingQueue[$id])) {
-            $response = $this->incomingQueue[$id];
+        $actionId = $message->getActionID('ActionID');
+        if (isset($this->incomingQueue[$actionId])) {
+            $response = $this->incomingQueue[$actionId];
             if ($response->isComplete()) {
-                unset($this->incomingQueue[$id]);
+                unset($this->incomingQueue[$actionId]);
                 $ret = $response;
             }
         }
@@ -404,10 +408,10 @@ class ClientImpl implements IClient
         $messageToSend = $message->serialize();
         $length = strlen($messageToSend);
         $this->logger->debug(
-            '------ Sending: ------ ' . "\n" . $messageToSend . '----------'
+            '------ Sending: ------ ' . "\n" . $messageToSend . '----------',
         );
         $this->lastActionId = $message->getActionId();
-        if (@fwrite($this->socket, $messageToSend) < $length) {
+        if (fwrite($this->socket, $messageToSend) < $length) {
             throw new ClientException('Could not send message');
         }
         $read = 0;
@@ -434,7 +438,7 @@ class ClientImpl implements IClient
     public function close()
     {
         $this->logger->debug('Closing connection to asterisk.');
-        @stream_socket_shutdown($this->socket, STREAM_SHUT_RDWR);
+        stream_socket_shutdown($this->socket, STREAM_SHUT_RDWR);
     }
 
     /**
@@ -466,9 +470,9 @@ class ClientImpl implements IClient
         $this->rTimeout = $options['read_timeout'];
         $this->scheme = isset($options['scheme']) ? $options['scheme'] : 'tcp://';
         $this->eventMask = isset($options['event_mask']) ? $options['event_mask'] : null;
-        $this->eventListeners = array();
+        $this->eventListeners = [];
         $this->eventFactory = new EventFactoryImpl();
-        $this->incomingQueue = array();
+        $this->incomingQueue = [];
         $this->lastActionId = false;
     }
 }

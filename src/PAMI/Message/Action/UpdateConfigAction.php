@@ -105,7 +105,7 @@ class UpdateConfigAction extends ActionMessage
     public function setAction($input)
     {
         UpdateConfigAction::$counter++;
-        $this->setKey('Action-'.$this->getPaddedCounter(), $input);
+        $this->setKey('Action-' . $this->getPaddedCounter(), $input);
     }
 
     /**
@@ -117,7 +117,7 @@ class UpdateConfigAction extends ActionMessage
      */
     public function setCat($input)
     {
-        $this->setKey('Cat-'.$this->getPaddedCounter(), $input);
+        $this->setKey('Cat-' . $this->getPaddedCounter(), $input);
     }
 
     /**
@@ -129,7 +129,7 @@ class UpdateConfigAction extends ActionMessage
      */
     public function setVar($input)
     {
-        $this->setKey('Var-'.$this->getPaddedCounter(), $input);
+        $this->setKey('Var-' . $this->getPaddedCounter(), $input);
     }
 
     /**
@@ -141,7 +141,7 @@ class UpdateConfigAction extends ActionMessage
      */
     public function setValue($input)
     {
-        $this->setKey('Value-'.$this->getPaddedCounter(), $input);
+        $this->setKey('Value-' . $this->getPaddedCounter(), $input);
     }
 
     /**
@@ -153,7 +153,7 @@ class UpdateConfigAction extends ActionMessage
     */
     public function setMatch($input)
     {
-        $this->setKey('Match-'.$this->getPaddedCounter(), $input);
+        $this->setKey('Match-' . $this->getPaddedCounter(), $input);
     }
 
     /**
@@ -165,7 +165,7 @@ class UpdateConfigAction extends ActionMessage
     */
     public function setLine($input)
     {
-        $this->setKey('Line-'.$this->getPaddedCounter(), $input);
+        $this->setKey('Line-' . $this->getPaddedCounter(), $input);
     }
 
     /**

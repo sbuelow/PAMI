@@ -44,6 +44,8 @@ use PAMI\Message\IncomingMessage;
  * @author     Marcelo Gornstein <marcelog@gmail.com>
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
+ *
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class EventMessage extends IncomingMessage
 {

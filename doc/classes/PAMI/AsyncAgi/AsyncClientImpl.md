@@ -148,7 +148,7 @@ protected close(): mixed
 Constructor.
 
 ```php
-public __construct(array $options = array()): void
+public __construct(array $options = []): void
 ```
 
 Note: The client accepts an array with options. The available options are

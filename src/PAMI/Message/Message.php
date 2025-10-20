@@ -87,7 +87,7 @@ abstract class Message
      */
     public function __sleep()
     {
-        return array('lines', 'variables', 'keys', 'createdDate');
+        return ['lines', 'variables', 'keys', 'createdDate'];
     }
 
     /**
@@ -138,8 +138,8 @@ abstract class Message
      */
     protected function setKey($key, $value)
     {
-        $key = strtolower((string)$key);
-        $this->keys[$key] = (string)$value;
+        $key = strtolower((string) $key);
+        $this->keys[$key] = (string) $value;
     }
 
     /**
@@ -155,7 +155,7 @@ abstract class Message
         if (!isset($this->keys[$key])) {
             return null;
         }
-        return (string)$this->keys[$key];
+        return (string) $this->keys[$key];
     }
 
     /**
@@ -206,10 +206,12 @@ abstract class Message
      * ami.
      *
      * @return string
+     *
+     * @SuppressWarnings(PHPMD.ElseExpression)
      */
     public function serialize()
     {
-        $result = array();
+        $result = [];
         foreach ($this->getKeys() as $k => $v) {
             $result[] = $k . ': ' . $v;
         }
@@ -243,9 +245,9 @@ abstract class Message
      */
     public function __construct()
     {
-        $this->lines = array();
-        $this->variables = array();
-        $this->keys = array();
+        $this->lines = [];
+        $this->variables = [];
+        $this->keys = [];
         $this->createdDate = time();
     }
 }

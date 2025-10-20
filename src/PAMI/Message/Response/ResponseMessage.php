@@ -178,7 +178,7 @@ class ResponseMessage extends IncomingMessage
     public function __construct($rawContent)
     {
         parent::__construct($rawContent);
-        $this->events = array();
+        $this->events = [];
         $this->eventsCount = 0;
         $this->completed = !$this->isList();
     }

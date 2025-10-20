@@ -32,8 +32,10 @@ namespace PAMI\AsyncAgi;
 use PAMI\Client\IClient as PamiClient;
 use PAGI\Client\AbstractClient as PagiClient;
 use PAMI\Listener\IEventListener;
+use PAMI\Message\Action\AGIAction;
 use PAMI\Message\Event\EventMessage;
 use PAGI\Client\Result\Result;
+use PAGI\Exception\ChannelDownException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
@@ -108,11 +110,11 @@ class AsyncClientImpl extends PagiClient implements IEventListener
     {
         $this->logger->debug('Sending: ' . $text);
         $this->lastCommandId = uniqid(__CLASS__);
-        $action = new \PAMI\Message\Action\AGIAction($this->channel, $text, $this->lastCommandId);
+        $action = new AGIAction($this->channel, $text, $this->lastCommandId);
         $this->lastAgiResult = false;
         $response = $this->pamiClient->send($action);
         if (!$response->isSuccess()) {
-            throw new \PAGI\Exception\ChannelDownException($response->getMessage());
+            throw new ChannelDownException($response->getMessage());
         }
         while ($this->lastAgiResult === false) {
             $this->pamiClient->process();
@@ -161,7 +163,7 @@ class AsyncClientImpl extends PagiClient implements IEventListener
      *
      * @return void
      */
-    public function __construct(array $options = array())
+    public function __construct(array $options = [])
     {
         $this->options = $options;
         $this->logger = new NullLogger();

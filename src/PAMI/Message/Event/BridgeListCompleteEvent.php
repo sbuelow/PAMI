@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Event triggered for the end of the list when an action BridgeList is issued.
  *
@@ -32,7 +33,7 @@ namespace PAMI\Message\Event;
 
 /**
  * Event triggered for the end of the list when an action BridgeList is issued.
- * 
+ *
  * PHP Version 5
  *
  * @category   Pami
