@@ -62,6 +62,13 @@ class ResponseMessage extends IncomingMessage
     private $completed;
 
     /**
+     * Events count
+     *
+     * @var integer
+     */
+    private int $eventsCount;
+
+    /**
      * Serialize function.
      *
      * @return string[]

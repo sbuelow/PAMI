@@ -1,4 +1,5 @@
 <?php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 if (!defined('ROOT_PATH')) {
@@ -7,6 +8,6 @@ if (!defined('ROOT_PATH')) {
 if (!defined('TMPDIR')) {
     define('TMPDIR', '/tmp');
 }
-require_once implode(DIRECTORY_SEPARATOR, array(
-  __DIR__, "..", "..", "vendor", "autoload.php"
-));
+require_once implode(DIRECTORY_SEPARATOR, [
+    __DIR__, "..", "..", "vendor", "autoload.php",
+]);
