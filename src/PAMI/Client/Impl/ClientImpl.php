@@ -181,19 +181,21 @@ class ClientImpl implements IClient
             $this->context,
         );
         if ($this->socket === false) {
-            throw new ClientException('Error connecting to ami: ' . $errstr);
+            throw new ClientException('Error connecting to ami: ' . $errstr, ClientException::ERR_SOCKET);
         }
         $msg = new LoginAction($this->user, $this->pass, $this->eventMask);
         $asteriskId = stream_get_line($this->socket, 1024, Message::EOL);
         if (strstr($asteriskId, 'Asterisk') === false) {
             throw new ClientException(
                 "Unknown peer. Is this an ami?: $asteriskId",
+                ClientException::ERR_PROTOCOL,
             );
         }
         $response = $this->send($msg);
         if (!$response->isSuccess()) {
             throw new ClientException(
                 'Could not connect: ' . $response->getMessage(),
+                ClientException::ERR_AUTH,
             );
         }
         stream_set_blocking($this->socket, 0);
@@ -245,7 +247,7 @@ class ClientImpl implements IClient
         // Read something.
         $read = fread($this->socket, 65535);
         if ($read === false || feof($this->socket)) {
-            throw new ClientException('Error reading');
+            throw new ClientException('Error reading', ClientException::ERR_READ);
         }
         $this->currentProcessingMessage .= $read;
         // If we have a complete message, then return it. Save the rest for
@@ -295,7 +297,11 @@ class ClientImpl implements IClient
                 $bMsg .= 'ActionId: ' . $this->lastActionId . "\r\n" . $aMsg;
                 $event = $this->messageToEvent($bMsg);
                 $response = $this->findResponse($event);
-                $response->addEvent($event);
+                if ($response) {
+                    $response->addEvent($event);
+                } else {
+                    $this->logger->debug('Unable to find an associated response for the given message.');
+                }
             }
             $this->logger->debug('----------------');
         }
@@ -412,7 +418,7 @@ class ClientImpl implements IClient
         );
         $this->lastActionId = $message->getActionId();
         if (fwrite($this->socket, $messageToSend) < $length) {
-            throw new ClientException('Could not send message');
+            throw new ClientException('Could not send message', ClientException::ERR_WRITE);
         }
         $read = 0;
         while ($read <= $this->rTimeout) {
@@ -427,7 +433,7 @@ class ClientImpl implements IClient
                 $read++;
             }
         }
-        throw new ClientException('Read timeout');
+        throw new ClientException('Read timeout', ClientException::ERR_TIMEOUT);
     }
 
     /**

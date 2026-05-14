@@ -45,4 +45,13 @@ use PAMI\Exception\PAMIException;
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
  */
-class ClientException extends PAMIException {}
+class ClientException extends PAMIException
+{
+    public const ERR_GENERIC  = 0;
+    public const ERR_SOCKET   = 1;
+    public const ERR_AUTH     = 2;
+    public const ERR_PROTOCOL = 3;
+    public const ERR_READ     = 4;
+    public const ERR_WRITE    = 5;
+    public const ERR_TIMEOUT  = 6;
+}

@@ -87,6 +87,13 @@ class AsyncClientImpl extends PagiClient implements IEventListener
     private $lastAgiResult;
 
     /**
+     * Undocumented variable
+     *
+     * @var array
+     */
+    private $options;
+
+    /**
      * Handles pami events.
      *
      * @param EventMessage $event

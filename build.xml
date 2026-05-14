@@ -19,11 +19,11 @@
     <mkdir dir="build/coverage-html" mode="0755"/>
   </target>
 
-<target name="cs">
-  <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
-    <arg line="fix -v"/>
-  </exec>
-</target>
+  <target name="cs">
+    <exec executable="vendor/bin/php-cs-fixer" checkreturn="true" passthru="true">
+      <arg line="fix -v"/>
+    </exec>
+  </target>
 
   <target name="md">
     <exec executable="vendor/bin/phpmd" checkreturn="false" passthru="true">

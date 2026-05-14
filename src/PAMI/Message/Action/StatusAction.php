@@ -48,6 +48,28 @@ namespace PAMI\Message\Action;
 class StatusAction extends ActionMessage
 {
     /**
+     * Set Variables key
+     *
+     * @param string $variables
+     * @return void
+     */
+    public function setVariables(string $variables)
+    {
+        $this->setKey('Variables', $variables);
+    }
+
+    /**
+     * Set AllVariables key
+     *
+     * @param [type] $flag
+     * @return void
+     */
+    public function setAllVariables($flag)
+    {
+        $this->setKey('AllVariables', $flag ? 'true' : 'false');
+    }
+
+    /**
      * Constructor.
      *
      * @param string $channel Channel to query (optional)
