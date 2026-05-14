@@ -11,12 +11,6 @@
 - [x] Fixed pre-existing trailing whitespace in `StatusAction.php`
 - [x] Created `CHANGELOG.md`
 
-## Phase 2 — Update consuming application (separate repo)
-
-- [ ] Update `Server.php` — switch `classifyAmiError()` from string matching to `$e->getCode()` matching
-- [ ] Update `composer.json` constraint to `"sbuelow/pami": "^2.1"`
-- [ ] Run `composer update sbuelow/pami`
-
 ## Future Ideas (from doc/IDEAS.md)
 
 - Event Parser Flexibility (`EventParserInterface`)
